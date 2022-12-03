@@ -15,7 +15,7 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class CookServiceImpl {
+public class CookServiceImpl implements CookService{
 
 
     @Autowired
