@@ -3,9 +3,8 @@ package com.example.demo.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.*;
 
 @Entity

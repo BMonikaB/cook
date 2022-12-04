@@ -37,7 +37,7 @@ public class CookRecipeServiceImpl implements CookRecipeService{
         Cook cook = optional.orElseThrow(() -> new RecipeException("Service.COOK_NOT_FOUND"));
 
         Optional<Recipe> optional2 = recipeRepository.findById(recipeId);
-        Recipe recipe = optional2.orElseThrow(() -> new RecipeException("Service.RECIPES_NOT_FOUND"));
+        Recipe recipe = optional2.orElseThrow(() -> new RecipeException("Service.RECIPE_NOT_FOUND"));
         recipeRepository.delete(recipe);
     }
 }

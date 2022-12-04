@@ -32,7 +32,7 @@ public class RecipeServiceImpl implements RecipeService{
     //pobierz jeden przepis po nazwie
     public Recipe getRecipeByName(String recipeName) throws RecipeException{
         Optional<Recipe> optional = recipeRepository.findByName(recipeName);
-        Recipe recipe = optional.orElseThrow(()-> new RecipeException("Service.RECIPES_NOT_FOUND"));
+        Recipe recipe = optional.orElseThrow(()-> new RecipeException("Service.RECIPE_NOT_FOUND"));
         return recipe;
     }
 
@@ -40,7 +40,7 @@ public class RecipeServiceImpl implements RecipeService{
     //uaktualnij przepis jeżeli jego nazwa istnieje
     public void updateRecipeByName(String recipeName, String instruction) throws RecipeException{
         Optional<Recipe> optional2 = recipeRepository.findByName(recipeName);
-        Recipe recipe = optional2.orElseThrow(()->new RecipeException("Service.RECIPES_NOT_FOUND"));
+        Recipe recipe = optional2.orElseThrow(()->new RecipeException("Service.RECIPE_NOT_FOUND"));
         recipe.setInstruction(instruction);
     }
 
@@ -54,7 +54,7 @@ public class RecipeServiceImpl implements RecipeService{
     //usun przepis po nazwie jezeli istnieje
     public void deleteRecipeByName(String recipeeName) throws RecipeException{
         Optional<Recipe> optional = recipeRepository.findByName(recipeeName);
-        Recipe recipe = optional.orElseThrow(()->new RecipeException("Service.RECIPES_NOT_FOUND"));
+        Recipe recipe = optional.orElseThrow(()->new RecipeException("Service.RECIPE_NOT_FOUND"));
         recipeRepository.deleteByName(recipeeName);
 
     }

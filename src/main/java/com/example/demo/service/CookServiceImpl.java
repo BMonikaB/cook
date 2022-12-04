@@ -26,7 +26,7 @@ public class CookServiceImpl implements CookService{
     //pobierz wszystkich kucharzy
     public List<Cook> getAllCooks() throws RecipeException {
         List<Cook> cooks = cookRepository.findAll();
-        if(cooks.isEmpty()) throw  new RecipeException("Service.COOK_NOT_FOUND");
+        if(cooks.isEmpty()) throw new RecipeException("Service.COOKS_NOT_FOUND");
         return cooks;
     }
 
