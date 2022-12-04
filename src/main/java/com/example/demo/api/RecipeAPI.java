@@ -46,8 +46,8 @@ public class RecipeAPI {
     public ResponseEntity<String> updateRecipe(@PathVariable String recipeName, @Valid @RequestBody Recipe recipe) throws RecipeException{
         try {
             recipeService.updateRecipeByName(recipeName, recipe.getInstruction());
-            String successMessage = environment.getProperty("API.INSERT_SUCCESS");
-            return new ResponseEntity<>(successMessage, HttpStatus.OK);
+            String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
+            return new ResponseEntity<>(successMessage, HttpStatus.NO_CONTENT);
         }
         catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -75,7 +75,7 @@ public class RecipeAPI {
     ResponseEntity<Recipe> getRecipeByName(@PathVariable String name) throws RecipeException{
         try{
             Recipe recipe = recipeService.getRecipeByName(name);
-            return new ResponseEntity<>(recipe, HttpStatus.CREATED);
+            return new ResponseEntity<>(recipe, HttpStatus.OK);
         }
         catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -92,8 +92,8 @@ public class RecipeAPI {
     public ResponseEntity<String> deleteRecipeById(@PathVariable String recipeName) throws RecipeException{
         try {
             recipeService.deleteRecipeByName(recipeName);
-            String successMessage = environment.getProperty("API.INSERT_SUCCESS");
-            return new ResponseEntity<>(successMessage, HttpStatus.OK);
+            String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+            return new ResponseEntity<>(successMessage, HttpStatus.NO_CONTENT);
         }
         catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,

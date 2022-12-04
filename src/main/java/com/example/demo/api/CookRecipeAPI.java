@@ -48,7 +48,7 @@ public class CookRecipeAPI {
     public ResponseEntity<String> deleteRecipeOfExistingCook(@PathVariable Integer cookId,@PathVariable Integer recipeId) throws RecipeException{
        try {
            cookRecipeService.deleteRecipeOfExistingCook(cookId, recipeId);
-           String successMessage = environment.getProperty("API.INSERT_SUCCESS");
+           String successMessage = environment.getProperty("API.DELETE_SUCCESS");
            return new ResponseEntity<>(successMessage, HttpStatus.OK);
        }catch (Exception exception) {
            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
