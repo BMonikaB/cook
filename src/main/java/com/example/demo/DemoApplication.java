@@ -3,7 +3,7 @@ package com.example.demo;
 import com.example.demo.domain.Cook;
 import com.example.demo.domain.Recipe;
 import com.example.demo.exception.RecipeException;
-import com.example.demo.repository.CookRepository;
+import com.example.demo.service.CookRecipeServiceImpl;
 import com.example.demo.service.CookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +16,8 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
 	CookServiceImpl cookService;
+	@Autowired
+	CookRecipeServiceImpl cookRecipeService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -48,8 +50,8 @@ public class DemoApplication implements CommandLineRunner {
 		Recipe recipe1 = new Recipe("spaghetti","Tu znajduje się przepis na zrobienie spagetti");
 		Recipe recipe2 = new Recipe("kotlet schabowy","Tutaj znajduje sie przepis na kotlet schabowy");
 
-		cookService.addRecipeIfCookExisting(1,recipe1);
-		cookService.addRecipeIfCookExisting(2,recipe2);
+		cookRecipeService.addRecipeIfCookExisting(1,recipe1);
+		cookRecipeService.addRecipeIfCookExisting(2,recipe2);
 
 
 	}

@@ -12,8 +12,6 @@ public interface CookService {
     List<Cook> getAllCooks() throws RecipeException;
     Integer addCook(Cook cook) throws RecipeException;
     void deleteCook(Integer cookId) throws RecipeException;
-    List<String> getAllRecipesByName() throws RecipeException;
-    void addRecipeIfCookExisting(Integer cookId, Recipe recipe) throws RecipeException;
-    void deleteRecipeOfExistingCook(Integer cookId, Integer recipeId) throws RecipeException;
-    void updateRecipe(Integer recipeId, String instruction) throws RecipeException;
+
+
 }

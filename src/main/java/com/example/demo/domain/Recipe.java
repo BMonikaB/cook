@@ -2,24 +2,26 @@ package com.example.demo.domain;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
-
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.util.*;
 @Entity
 public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
+
+    @NotBlank(message = "The field cannot be null, cannot be an empty string, and non-whitespace")
     @Size(max = 128, message = "The field author cannot be longer than 128 letters")
-    @Column(name = "name")
     private String name;
-    @NotNull
+    @NotBlank(message = "The field cannot be null, cannot be an empty string, and non-whitespace")
     @Size(max = 1024, message = "The field author cannot be longer than 1024 letters")
     private String instruction;
 
